@@ -1,104 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Valentine 💖</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: 'Arial', sans-serif;
-    }
+<meta charset="UTF-8">
+<title>Valentine 💖</title>
 
-    .card {
-      background: pink;
-      padding: 40px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      width: 300px;
-    }
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
 
-    h1 {
-      color: #d6336c;
-      margin-bottom: 20px;
-    }
+.card {
+  background: #ffc0cb;
+  padding: 35px;
+  border-radius: 25px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  width: 320px;
+}
 
-    img {
-      width: 80px;
-      margin-bottom: 20px;
-    }
+h1 {
+  color: #d6336c;
+  margin-bottom: 15px;
+}
 
-    .buttons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+img {
+  width: 120px;
+  margin-bottom: 20px;
+}
 
-    button {
-      border: none;
-      padding: 15px 25px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
 
-    #yes {
-      background: #28a745;
-      color: white;
-    }
+button {
+  border: none;
+  padding: 14px 26px;
+  font-size: 18px;
+  border-radius: 12px;
+  cursor: pointer;
+}
 
-    #no {
-      background: #dc3545;
-      color: white;
-      position: relative;
-    }
-  </style>
+#yes {
+  background: #28a745;
+  color: white;
+}
+
+#no {
+  background: #dc3545;
+  color: white;
+  position: absolute;
+}
+
+.footer {
+  margin-top: 20px;
+  color: #6f1d1b;
+  font-size: 14px;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="card">
-    <h1>Will you be my Valentine? 💕</h1>
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
-    <img src="https://i.imgur.com/0Z8FQyR.png" alt="cute" />
+<div class="card">
+  <h1>Will you be my Valentine? 💕</h1>
 
-    <div class="buttons">
-      <button id="yes">Yes</button>
-      <button id="no">No</button>
-    </div>
+  <img src="https://media.tenor.com/2roX3uxz_68AAAAC/teddy-bear-love.gif" alt="teddy">
 
-    <p style="margin-top:20px; color:#6f1d1b;">
-      — Paritosh ❤️
-    </p>
+  <div class="buttons">
+    <button id="yes">Yes</button>
+    <button id="no">No</button>
   </div>
 
-  <script>
-    const noBtn = document.getElementById("no");
+  <div class="footer">
+    — Paritosh ❤️
+  </div>
+</div>
 
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
+<script>
+const noBtn = document.getElementById("no");
 
-    document.getElementById("yes").addEventListener("click", () => {
-      document.body.innerHTML = `
-        <h1 style="
-          color:white;
-          font-size:40px;
-          text-align:center;
-          font-family:Arial;
-        ">
-          Yay! 💖 Happy Valentine’s Day 💕<br>
-          — Paritosh
-        </h1>
-      `;
-    });
-  </script>
+function moveNoButton() {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 100);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNoButton);
+noBtn.addEventListener("touchstart", moveNoButton);
+
+document.getElementById("yes").addEventListener("click", () => {
+  document.body.innerHTML = `
+    <div style="
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+      font-family:Arial;
+      color:white;
+      text-align:center;
+      font-size:36px;
+    ">
+      Yayyy!!! 💖<br>
+      Happy Valentine’s Day 💕<br><br>
+      — Paritosh
+    </div>
+  `;
+});
+</script>
 
 </body>
 </html>
